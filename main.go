@@ -18,4 +18,5 @@ func main() {
 	comp.Compile()
 	m := NewMachine(comp.instructions, os.Stdin, os.Stdout)
 	m.Execute()
+	m.Dump()
 }

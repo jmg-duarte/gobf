@@ -6,9 +6,9 @@ import (
 )
 
 const (
-	currentInstruction        = "current instruction: %c"
-	currentInstructionPointer = "current ip: %s"
-	currentDataPointer        = "current dp: %s"
+	currentInstruction        = "current instruction: %c\n"
+	currentInstructionPointer = "current ip: %d\n"
+	currentDataPointer        = "current dp: %d\n"
 )
 
 type BFMachine struct {
@@ -108,4 +108,9 @@ func (m *BFMachine) putChar() {
 	if n != 1 {
 		panic("wrong number of bytes written")
 	}
+}
+
+func (m BFMachine) Dump() {
+	log.Printf(currentDataPointer, m.dp)
+	log.Printf(currentInstructionPointer, m.ip)
 }
